@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>You're invited · Quick</title>
+<meta name="description" content="Tap to say if you can make it.">
+<meta property="og:title" content="📨 You're invited">
+<meta property="og:description" content="Tap to say if you can make it — Going, Maybe or Can't make it.">
+<meta name="theme-color" content="#1B4F72">
+<!-- Quick's invite link page (settings 31, Nov 12). Source of truth: the
+     site-reporter repo, site-reporter-app/docs/invite-page/index.html — this
+     copy is published to the quick-invite GitHub Pages repo. It talks only to
+     the invite-link edge function (docs/invite-link-fn.ts). -->
+<style>
+  :root {
+    --navy: #1B4F72;
+    --navy-70: rgba(27, 79, 114, 0.7);
+    --navy-45: rgba(27, 79, 114, 0.45);
+    --navy-12: rgba(27, 79, 114, 0.12);
+    --navy-06: rgba(27, 79, 114, 0.06);
+    --green: #27AE60;
+    --amber: #E67E22;
+    --grey: #6B7280;
+    --ink: #22303C;
+    --bg: #EEF3F8;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    min-height: 100vh; min-height: 100dvh;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 520px at 50% -160px, rgba(27, 79, 114, 0.22), transparent 70%),
+      var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    padding: max(20px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+  }
+  .card {
+    width: 100%; max-width: 380px;
+    background: #fff; border-radius: 26px;
+    box-shadow: 0 18px 50px rgba(27, 42, 58, 0.16), 0 2px 6px rgba(27, 42, 58, 0.06);
+    padding: 26px 22px 20px;
+    animation: rise 420ms cubic-bezier(.2, .9, .3, 1.2) both;
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px) scale(.97); } to { opacity: 1; transform: none; } }
+  .badge {
+    width: 58px; height: 58px; border-radius: 29px; margin: 0 auto 12px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--navy-06); border: 1px solid var(--navy-12);
+    font-size: 28px;
+  }
+  .from { text-align: center; font-size: 14px; font-weight: 700; color: var(--navy-70); letter-spacing: .2px; }
+  h1 { margin: 6px 0 0; text-align: center; font-size: 25px; line-height: 1.2; font-weight: 800; color: var(--navy); letter-spacing: -.3px; word-break: break-word; }
+  .when {
+    margin: 12px auto 0; width: fit-content; max-width: 100%;
+    display: flex; align-items: center; gap: 7px;
+    padding: 7px 13px; border-radius: 999px;
+    background: var(--navy-06); border: 1px solid var(--navy-12);
+    font-size: 14px; font-weight: 700; color: var(--navy);
+  }
+  .counts { text-align: center; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--navy-45); min-height: 17px; }
+  .rule { height: 1px; background: var(--navy-12); margin: 18px 0 16px; }
+  label { display: block; font-size: 11px; font-weight: 800; letter-spacing: 1.1px; color: var(--navy-45); margin: 0 0 7px 2px; }
+  input {
+    width: 100%; height: 48px; border-radius: 14px; padding: 0 14px;
+    border: 1.5px solid var(--navy-12); background: #F7F9FB;
+    font: inherit; font-size: 16px; font-weight: 600; color: var(--ink); outline: none;
+    transition: border-color 150ms, background 150ms;
+  }
+  input:focus { border-color: var(--navy-45); background: #fff; }
+  input.shake { animation: shake 320ms; border-color: #E74C3C; }
+  @keyframes shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+  .answers { display: grid; gap: 10px; margin-top: 14px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  button.ans {
+    height: 52px; border-radius: 15px; border: 1.5px solid transparent; cursor: pointer;
+    font: inherit; font-size: 16px; font-weight: 800; letter-spacing: .1px;
+    transition: transform 120ms, background 150ms, color 150ms, border-color 150ms, box-shadow 150ms;
+  }
+  button.ans:active { transform: scale(.97); }
+  button.ans[disabled] { opacity: .55; cursor: default; }
+  .yes { background: var(--green); color: #fff; box-shadow: 0 6px 16px rgba(39, 174, 96, .28); }
+  .maybe { background: rgba(230, 126, 34, .1); color: var(--amber); border-color: rgba(230, 126, 34, .28); }
+  .no { background: #EEF2F6; color: var(--grey); }
+  /* An answer given: it's lit, the others step back. */
+  .answers.has .ans:not(.on) { background: #fff; color: var(--navy-45); border-color: var(--navy-12); box-shadow: none; }
+  .answers.has .yes.on { box-shadow: 0 6px 16px rgba(39, 174, 96, .28); }
+  .answers.has .maybe.on { background: var(--amber); color: #fff; border-color: var(--amber); box-shadow: 0 6px 16px rgba(230, 126, 34, .28); }
+  .answers.has .no.on { background: var(--grey); color: #fff; }
+  .done { text-align: center; padding: 4px 0 2px; }
+  .done .big { font-size: 44px; line-height: 1; animation: pop 380ms cubic-bezier(.2, .9, .3, 1.5) both; }
+  @keyframes pop { from { transform: scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
+  .done .said { margin-top: 10px; font-size: 19px; font-weight: 800; color: var(--navy); }
+  .done .who { margin-top: 4px; font-size: 13.5px; font-weight: 600; color: var(--navy-45); }
+  .link {
+    display: inline-block; margin-top: 14px; padding: 10px 16px; border-radius: 999px;
+    background: var(--navy-06); border: 1px solid var(--navy-12);
+    font: inherit; font-size: 14px; font-weight: 700; color: var(--navy); cursor: pointer;
+  }
+  .note { margin-top: 16px; text-align: center; font-size: 12.5px; font-weight: 600; color: var(--navy-45); line-height: 1.45; }
+  .err { margin-top: 12px; text-align: center; font-size: 13.5px; font-weight: 700; color: #C0392B; min-height: 0; }
+  .center { text-align: center; }
+  .muted { color: var(--navy-45); font-weight: 600; font-size: 14.5px; line-height: 1.5; margin: 10px 0 0; }
+  .skel { height: 14px; border-radius: 8px; background: linear-gradient(90deg, #EEF2F6, #F7F9FB, #EEF2F6); background-size: 200% 100%; animation: shimmer 1.2s infinite; }
+  @keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+  .foot { margin-top: 18px; text-align: center; font-size: 11.5px; font-weight: 700; color: var(--navy-45); letter-spacing: .3px; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<main class="card" id="card" aria-live="polite">
+  <div class="badge" aria-hidden="true">📨</div>
+  <div class="skel" style="width: 46%; margin: 0 auto;"></div>
+  <div class="skel" style="width: 72%; margin: 14px auto 0; height: 22px;"></div>
+  <div class="skel" style="width: 52%; margin: 14px auto 0;"></div>
+</main>
+
+<script>
+(function () {
+  var API = "https://uaefsjazxqhtchxcjjyd.supabase.co/functions/v1/invite-link";
+  var token = (new URLSearchParams(location.search).get("e") || "").trim();
+  var tz = "";
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) { /* the server's default */ }
+
+  // This phone's guest key: the same link opened again finds my answer.
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  function newKey() {
+    if (window.crypto && crypto.getRandomValues) {
+      var a = new Uint8Array(16); crypto.getRandomValues(a);
+      return Array.prototype.map.call(a, function (b) { return ("0" + b.toString(16)).slice(-2); }).join("");
+    }
+    return (Date.now().toString(16) + Math.random().toString(16).slice(2) + Math.random().toString(16).slice(2)).slice(0, 32);
+  }
+  var key = store("quick-invite-key");
+  if (!key || key.length < 16) { key = newKey(); store("quick-invite-key", key); }
+
+  var card = document.getElementById("card");
+  var state = null;     // the last read
+  var editing = false;  // "Change my answer" open
+  var busy = false;
+
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+
+  function call(body) {
+    body.e = token; body.k = key; body.tz = tz;
+    return fetch(API, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json(); });
+  }
+
+  var SAID = {
+    yes: { big: "🎉", said: "You're going!", btn: "✓  Going" },
+    maybe: { big: "🤔", said: "You said maybe", btn: "🤔  Maybe" },
+    no: { big: "👋", said: "You can't make it", btn: "🚫  Can't make it" }
+  };
+
+  function countsLine(c) {
+    if (!c) return "";
+    var bits = [];
+    if (c.yes > 0) bits.push(c.yes + " going");
+    if (c.maybe > 0) bits.push(c.maybe + " maybe");
+    return bits.join("  ·  ");
+  }
+
+  function head(s) {
+    return '<div class="badge" aria-hidden="true">📨</div>' +
+      '<div class="from">' + esc(s.host) + ' invited you</div>' +
+      '<h1>' + esc(s.label) + '</h1>' +
+      (s.when ? '<div class="when"><span aria-hidden="true">🗓</span><span>' + esc(s.when) + '</span></div>' : '') +
+      '<div class="counts">' + esc(countsLine(s.counts)) + '</div>';
+  }
+
+  function render(s, err) {
+    state = s;
+    if (!s || s.off) {
+      card.innerHTML = '<div class="badge" aria-hidden="true">🔗</div><h1>This link is off</h1>' +
+        '<p class="muted center">Whoever sent it turned it off. Ask them for a new one.</p>' +
+        '<div class="foot">QUICK</div>';
+      return;
+    }
+    var me = s.me || null;
+    var html = head(s);
+    if (s.past) {
+      var gave = me ? { yes: "you were going", maybe: "you said maybe", no: "you couldn't make it" }[me.rsvp] : "";
+      html += '<div class="rule"></div><p class="muted center">This one already happened' +
+        (gave ? ' — ' + gave + '.' : '.') + '</p>';
+      card.innerHTML = html + '<div class="foot">QUICK</div>';
+      return;
+    }
+    html += '<div class="rule"></div>';
+    if (me && !editing) {
+      var w = SAID[me.rsvp];
+      html += '<div class="done"><div class="big" aria-hidden="true">' + w.big + '</div>' +
+        '<div class="said">' + w.said + '</div>' +
+        '<div class="who">Answering as ' + esc(me.name) + '</div>' +
+        '<button class="link" id="change">Change my answer</button></div>';
+    } else {
+      var name = (me && me.name) || store("quick-invite-name") || "";
+      html += '<label for="name">YOUR NAME</label>' +
+        '<input id="name" autocomplete="given-name" maxlength="40" placeholder="So they know who\'s coming" value="' + esc(name) + '">' +
+        '<div class="answers' + (me ? ' has' : '') + '" id="answers">' +
+          '<button class="ans yes' + (me && me.rsvp === "yes" ? " on" : "") + '" data-r="yes">' + SAID.yes.btn + '</button>' +
+          '<div class="row2">' +
+            '<button class="ans maybe' + (me && me.rsvp === "maybe" ? " on" : "") + '" data-r="maybe">' + SAID.maybe.btn + '</button>' +
+            '<button class="ans no' + (me && me.rsvp === "no" ? " on" : "") + '" data-r="no">🚫  Can\'t</button>' +
+          '</div>' +
+        '</div>';
+    }
+    html += '<div class="err" id="err">' + esc(err || "") + '</div>' +
+      '<div class="note">Come back to this link any time to change your answer.</div>' +
+      '<div class="foot">QUICK</div>';
+    card.innerHTML = html;
+
+    var change = document.getElementById("change");
+    if (change) change.onclick = function () { editing = true; render(state); };
+    var btns = card.querySelectorAll("button.ans");
+    Array.prototype.forEach.call(btns, function (b) {
+      b.onclick = function () { answer(b.getAttribute("data-r")); };
+    });
+    var input = document.getElementById("name");
+    if (input && !input.value) setTimeout(function () { try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); } }, 350);
+  }
+
+  function setBusy(on) {
+    busy = on;
+    Array.prototype.forEach.call(card.querySelectorAll("button.ans"), function (b) { b.disabled = on; });
+  }
+
+  function answer(rsvp) {
+    if (busy) return;
+    var input = document.getElementById("name");
+    var name = input ? input.value.trim() : "";
+    if (!name) {
+      if (input) { input.classList.remove("shake"); void input.offsetWidth; input.classList.add("shake"); input.focus(); }
+      var e = document.getElementById("err"); if (e) e.textContent = "Add your name so they know who's coming.";
+      return;
+    }
+    store("quick-invite-name", name);
+    setBusy(true);
+    call({ action: "answer", name: name, rsvp: rsvp })
+      .then(function (s) {
+        setBusy(false);
+        if (s && s.error === "past") { render(s); return; }
+        if (s && s.error === "full") { render(state, "This one's full — tell whoever sent it."); return; }
+        if (s && s.error) { render(s.off ? s : state, s.off ? "" : "That didn't save — try again."); return; }
+        editing = false;
+        render(s);
+      })
+      .catch(function () { setBusy(false); render(state, "No connection — try again in a moment."); });
+  }
+
+  if (!token) { render({ off: true }); return; }
+  call({ action: "get" })
+    .then(function (s) { render(s); })
+    .catch(function () {
+      card.innerHTML = '<div class="badge" aria-hidden="true">📶</div><h1>No connection</h1>' +
+        '<p class="muted center">Check your signal and try again.</p>' +
+        '<div class="center"><button class="link" onclick="location.reload()">Try again</button></div>' +
+        '<div class="foot">QUICK</div>';
+    });
+})();
+</script>
+</body>
+</html>
