@@ -162,13 +162,15 @@
   .sheet {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 21; margin: 0 auto; max-width: 560px;
     background: #fff; border-radius: 24px 24px 0 0;
-    padding: 18px 18px max(22px, env(safe-area-inset-bottom));
-    max-height: 88vh; max-height: 88dvh; overflow-y: auto; -webkit-overflow-scrolling: touch;
     transform: translateY(105%); transition: transform 260ms cubic-bezier(.2, .9, .3, 1);
     box-shadow: 0 -10px 40px rgba(27, 42, 58, .18);
   }
   .sheet.open { transform: none; }
-  .sheetwrap { position: fixed; left: 0; right: 0; bottom: 0; z-index: 21; pointer-events: none; }
+  /* The scrolling part sits inside, so the ✕ on the edge isn't cut off. */
+  .sheetin {
+    padding: 18px 18px max(22px, env(safe-area-inset-bottom));
+    max-height: 88vh; max-height: 88dvh; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+  }
   .sheethead { display: flex; align-items: center; justify-content: space-between; min-height: 34px; margin-bottom: 12px; }
   .sheethead h2 { margin: 0; flex: 1; text-align: center; font-size: 17px; font-weight: 800; color: var(--navy); }
   /* ✕ sits ON the sheet's top-left edge (the app's SheetClose). */
@@ -185,6 +187,7 @@
   .sw { width: 46px; height: 28px; border-radius: 14px; background: var(--navy-12); position: relative; transition: background 160ms; flex: none; }
   .sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 11px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .2); transition: transform 160ms; }
   .toggle.on .sw { background: var(--gold); }
+  .gold { color: var(--gold); }
   .toggle.on .sw::after { transform: translateX(18px); }
   .srow { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
   .srow .chk { width: 22px; height: 22px; border-radius: 11px; font-size: 12px; }
@@ -489,7 +492,7 @@
     document.body.classList.add("locked");
     var scrim = document.createElement("div"); scrim.className = "scrim";
     var sh = document.createElement("div"); sh.className = "sheet"; sh.setAttribute("role", "dialog");
-    sh.innerHTML = '<button class="x" aria-label="Cancel">✕</button>' + html;
+    sh.innerHTML = '<button class="x" aria-label="Cancel">✕</button><div class="sheetin">' + html + '</div>';
     document.body.appendChild(scrim); document.body.appendChild(sh);
     requestAnimationFrame(function () { scrim.classList.add("open"); sh.classList.add("open"); });
     function close() {
@@ -535,8 +538,8 @@
                   steps: (it.steps || []).map(function (s) { return Object.assign({}, s); }) };
     var s = sheet(
       '<div class="sheethead"><span class="sp"></span><h2>Item</h2><button class="doneBtn" id="done">Done</button></div>' +
-      '<textarea id="t" rows="2" maxlength="500" placeholder="Item"></textarea>' +
-      '<div class="toggle' + (draft.star ? ' on' : '') + '" id="star" role="switch"><span>★  Star it</span><span class="sw"></span></div>' +
+      '<textarea id="t" rows="1" maxlength="500" placeholder="Item"></textarea>' +
+      '<div class="toggle' + (draft.star ? ' on' : '') + '" id="star" role="switch"><span><span class="gold">★</span>  Star it</span><span class="sw"></span></div>' +
       '<div class="field"><div class="k"><span>STEPS</span><span id="stepcount"></span></div><div id="steps"></div>' +
         '<div class="srow"><span style="width:22px;flex:none"></span><input id="newstep" maxlength="500" placeholder="Add a step" enterkeyhint="done"></div></div>' +
       '<div class="field"><div class="k"><span>NOTES</span></div><textarea id="n" rows="3" maxlength="4000" placeholder="Add a note"></textarea></div>' +
