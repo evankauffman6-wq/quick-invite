@@ -60,7 +60,7 @@
     background: var(--navy-06); border: 1px solid var(--navy-12);
     font-size: 14px; font-weight: 700; color: var(--navy);
   }
-  .counts { text-align: center; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--navy-45); min-height: 17px; }
+  .counts { text-align: center; margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--navy-45); }
   .rule { height: 1px; background: var(--navy-12); margin: 18px 0 16px; }
   label { display: block; font-size: 11px; font-weight: 800; letter-spacing: 1.1px; color: var(--navy-45); margin: 0 0 7px 2px; }
   input {
@@ -168,7 +168,7 @@
       '<div class="from">' + esc(s.host) + ' invited you</div>' +
       '<h1>' + esc(s.label) + '</h1>' +
       (s.when ? '<div class="when"><span aria-hidden="true">🗓</span><span>' + esc(s.when) + '</span></div>' : '') +
-      '<div class="counts">' + esc(countsLine(s.counts)) + '</div>';
+      (countsLine(s.counts) ? '<div class="counts">' + esc(countsLine(s.counts)) + '</div>' : '');
   }
 
   function render(s, err) {
@@ -219,7 +219,14 @@
       b.onclick = function () { answer(b.getAttribute("data-r")); };
     });
     var input = document.getElementById("name");
-    if (input && !input.value) setTimeout(function () { try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); } }, 350);
+    if (input) {
+      // Typing a name clears the "add your name" nudge.
+      input.oninput = function () {
+        input.classList.remove("shake");
+        var e = document.getElementById("err"); if (e) e.textContent = "";
+      };
+      if (!input.value) setTimeout(function () { try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); } }, 350);
+    }
   }
 
   function setBusy(on) {
