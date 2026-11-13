@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Shared list · Quick</title>
 <meta name="description" content="A list shared with you — tick things off, add to it, no app needed.">
 <meta property="og:title" content="📋 A list shared with you">
@@ -68,7 +68,7 @@
   .icon i { width: 46px; height: 46px; border-radius: 23px; background: var(--accent); color: #fff; font-style: normal;
             font-size: 21px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
   .titleIn {
-    flex: 1; min-width: 0; background: #F0F3F7; border-radius: 10px; padding: 12px 14px; font-size: 15px; color: var(--ink);
+    flex: 1; min-width: 0; background: #F0F3F7; border-radius: 10px; padding: 12px 14px; font-size: 16px; color: var(--ink);
     border: 1px solid var(--hair); outline: none;
   }
   .titleIn::placeholder { color: #aaa; }
@@ -119,12 +119,12 @@
   .steps .tx { color: var(--ink); }
   .r.done .tx { color: #bbb; text-decoration: line-through; }
   .t .prog { position: absolute; left: 0; right: 0; bottom: -3px; }
-  .ren { width: 100%; font-size: 15px; color: var(--ink); border: 0; border-bottom: 1px solid var(--navy); padding: 1px 0 2px; outline: none; background: transparent; border-radius: 0; }
+  .ren { width: 100%; font-size: 16px; color: var(--ink); border: 0; border-bottom: 1px solid var(--navy); padding: 1px 0 2px; outline: none; background: transparent; border-radius: 0; }
   .by { flex: none; width: 18px; height: 18px; border-radius: 9px; margin-left: 6px; border: 1.5px solid #fff; color: #fff;
         font-size: 9.5px; font-weight: 900; display: flex; align-items: center; justify-content: center; box-sizing: content-box; }
   .dot { flex: none; width: 6px; height: 6px; border-radius: 3px; background: var(--navy); margin: 0 6px; }
   .x { flex: none; padding: 10px 12px; margin: -6px 0; font-size: 17px; font-weight: 600; color: var(--red); line-height: 1; }
-  .hdl { flex: none; padding: 4px 8px; font-size: 18px; font-weight: 700; color: rgba(27, 79, 114, .45); line-height: 1; touch-action: none; transition: transform 150ms; cursor: grab; }
+  .hdl { flex: none; padding: 4px 8px; font-size: 18px; font-weight: 700; color: rgba(27, 79, 114, .45); line-height: 1; touch-action: pan-y; /* a swipe that starts on ☰ still scrolls, until the hold lifts it */ transition: transform 150ms; cursor: grab; }
   .hdl.held { transform: scale(1.35); }
   /* A section's header (HeaderRow.js). */
   .r.h { padding: 14px 0 6px; border-bottom: .5px solid #C9D4DD; border-radius: 0; }
@@ -136,9 +136,9 @@
   .hx { font-size: 15px; font-weight: 600; color: #B6BEC6; margin-left: 10px; padding: 6px 4px; flex: none; line-height: 1; }
   .r.h .ren { font-size: 15px; font-weight: 800; color: var(--navy); }
   /* The new item's ghost (ItemComposer GhostRow). */
-  .r.g { border: 1.5px dashed rgba(52, 152, 219, .33); background: rgba(52, 152, 219, .08); border-radius: 10px; padding: 8px; margin: 3px 0; cursor: grab; touch-action: none; }
+  .r.g { border: 1.5px dashed rgba(52, 152, 219, .33); background: rgba(52, 152, 219, .08); border-radius: 10px; padding: 8px; margin: 3px 0; cursor: grab; touch-action: pan-y; }
   .r.g .chk { border: 2px dashed rgba(52, 152, 219, .55); }
-  .gt { flex: 1; min-width: 0; font-size: 15px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .gt { flex: 1; min-width: 0; font-size: 16px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .gt.ph { color: #9AA6B2; }
   .caret { display: inline-block; width: 2px; height: 17px; background: var(--accent); vertical-align: -3px; margin: 0 1px; animation: blink 1s steps(1) infinite; }
   @keyframes blink { 50% { opacity: 0; } }
@@ -157,7 +157,7 @@
   .ring { width: 20px; height: 20px; border-radius: 10px; border: 2px solid rgba(27, 79, 114, .3); flex: none; margin-right: 10px; }
   .ring.pop { animation: ringpop 380ms cubic-bezier(.34, 1.56, .64, 1); }
   @keyframes ringpop { from { transform: scale(.4); } to { transform: none; } }
-  .bar input { flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font-size: 15px; color: var(--ink); height: 100%; }
+  .bar input { flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font-size: 16px; color: var(--ink); height: 100%; }
   .bar input::placeholder { color: #9AA6B2; }
   .hchip { height: 32px; padding: 0 11px; border-radius: 16px; border: 1.5px solid var(--navy); color: var(--navy); font-size: 12px; font-weight: 800; margin-right: 6px; flex: none; transition: opacity 150ms; }
   .plus { width: 38px; height: 38px; border-radius: 19px; background: var(--navy); color: #fff; font-size: 24px; font-weight: 500; line-height: 1; flex: none;
@@ -210,7 +210,7 @@
   .paper.writing { box-shadow: 0 4px 8px rgba(27, 79, 114, .08); }
   .paper.writing::before { opacity: .85; }
   .paper .mirror, .paper textarea {
-    display: block; width: 100%; margin: 0; padding: 10px 14px 10px 36px; font-size: 15px; line-height: 24px; font-family: inherit;
+    display: block; width: 100%; margin: 0; padding: 10px 14px 10px 36px; font-size: 16px; line-height: 24px; font-family: inherit;
     white-space: pre-wrap; word-wrap: break-word; overflow-wrap: break-word; letter-spacing: 0;
   }
   .paper .mirror { position: absolute; inset: 0; color: var(--ink); pointer-events: none; overflow: hidden; }
@@ -219,7 +219,7 @@
   .paper textarea { position: relative; min-height: 116px; border: 0; outline: none; background: transparent; resize: none; color: transparent; caret-color: var(--ink); overflow: hidden; }
   .paper.writing textarea { min-height: 216px; }
   .paper textarea::selection { background: rgba(52, 152, 219, .25); color: transparent; }
-  .vnote { font-size: 15px; line-height: 24px; color: var(--ink); white-space: pre-wrap; padding: 10px 14px 10px 36px; }
+  .vnote { font-size: 16px; line-height: 24px; color: var(--ink); white-space: pre-wrap; padding: 10px 14px 10px 36px; }
   .dashed { border: 1.5px dashed rgba(27, 79, 114, .25); border-radius: 14px; padding: 14px; text-align: center; font-size: 13.5px; font-weight: 700; color: rgba(27, 79, 114, .55); cursor: pointer; }
   /* The notes toolbar (NotesToolbar.js). */
   .ntool { display: flex; align-items: center; gap: 8px; }
@@ -238,6 +238,9 @@
            background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 999px; max-width: calc(100% - 32px); text-align: center;
            font-size: 14px; font-weight: 700; box-shadow: 0 10px 26px rgba(11, 42, 64, .28); transition: opacity 200ms, transform 200ms; }
   .toast.show { opacity: 1; transform: translate(-50%, 0); }
+  .toast.show.act { pointer-events: auto; }
+  .toast.act { display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 16px; }
+  .toast .undo { background: rgba(255, 255, 255, .16); color: #fff; font-weight: 800; font-size: 14px; padding: 7px 14px; border-radius: 999px; }
   .msg { text-align: center; padding: 40px 10px 10px; }
   .msg .big { font-size: 40px; }
   .msg h1 { margin: 10px 0 6px; font-size: 21px; font-weight: 800; color: var(--navy); }
@@ -260,11 +263,11 @@
 
 <script>
 /* The app's own checklist rules — built from utils/ by docs/build-list-page.js; don't edit here. */
-var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(n){throw e=0,n}};var k=S((Nt,$)=>{function Z(t){return(Array.isArray(t)?t:[]).map(n=>({id:String(n.id),spaceId:n.spaceId?String(n.spaceId):"",title:typeof n.title=="string"&&n.title?n.title:"Shared list",createdAt:n.createdAt||null,role:n.role==="owner"?"owner":"member",shared:!0,dueDate:n.dueDate||null,startTime:n.startTime||null,endTime:n.endTime||null,scheduleDoneDate:n.doneDate||null,eventId:n.eventId?String(n.eventId):null,members:(Array.isArray(n.members)?n.members:[]).map(s=>({id:String(s.id),name:s.name||"Member",role:s.role==="owner"?"owner":"member"})),...Array.isArray(n.parties)?{parties:n.parties.map(s=>({id:String(s.id),notify:s.notify!==!1,hidden:!!s.hidden,role:s.role==="watching"?"watching":"doing",pickedRole:s.pickedRole==="watching"?"watching":s.pickedRole==="doing"?"doing":s.role==="watching"?"watching":"doing",canEdit:s.canEdit!==!1,notifyTicks:s.notifyTicks!==!1}))}:{},items:(Array.isArray(n.items)?n.items.slice():[]).map(s=>({id:String(s.id),text:typeof s.text=="string"?s.text:"",completed:!!s.completed,completedBy:s.completed&&s.completedBy?String(s.completedBy):null,completedAt:s.completed&&s.completedAt?String(s.completedAt):null,...s.completed&&s.completedBy&&s.completedByName?{completedByName:String(s.completedByName)}:{},highlighted:!!s.highlighted,position:Number(s.position)||0,...s.header?{header:!0}:{},notes:typeof s.notes=="string"?s.notes:"",subItems:Array.isArray(s.subItems)?s.subItems:[]})).sort((s,o)=>s.position-o.position||(s.id<o.id?-1:1))}))}function tt(t){let e=t.length;if(e===0)return[];let n=new Array(e).fill(1),s=new Array(e).fill(-1),o=0;for(let l=1;l<e;l++){for(let c=0;c<l;c++)t[c]<t[l]&&n[c]+1>n[l]&&(n[l]=n[c]+1,s[l]=c);n[l]>n[o]&&(o=l)}let i=[];for(let l=o;l!==-1;l=s[l])i.unshift(l);return i}var O=1e3;function et(t,e,n){let s=new Map,o=0;for(;o<t.length;){if(e.has(t[o].id)){o++;continue}let i=o;for(;i<t.length&&!e.has(t[i].id);)i++;let l=o>0?n(t[o-1].id):null,c=i<t.length?n(t[i].id):null,d=i-o;for(let u=0;u<d;u++){let m;l!==null&&c!==null?m=l+(c-l)*(u+1)/(d+1):l!==null?m=l+O*(u+1):c!==null?m=c-O*(d-u):m=O*(u+1),s.set(t[o+u].id,m)}o=i}return s}function nt(t,e){let n=Array.isArray(t)?t:[],s=Array.isArray(e)?e:[],o=new Map(n.map(r=>[r.id,r])),i=new Set(s.map(r=>r.id)),l=[];for(let r of n)i.has(r.id)||l.push({op:"remove",id:r.id});for(let r of s){let h=o.get(r.id);if(!h)continue;let a={};(h.text||"")!==(r.text||"")&&(a.text=r.text||""),!!h.completed!=!!r.completed&&(a.completed=!!r.completed),!!h.highlighted!=!!r.highlighted&&(a.highlighted=!!r.highlighted),(h.notes||"")!==(r.notes||"")&&(a.notes=r.notes||""),JSON.stringify(h.subItems||[])!==JSON.stringify(r.subItems||[])&&(a.subItems=Array.isArray(r.subItems)?r.subItems:[]),Object.keys(a).length&&l.push({op:"update",id:r.id,fields:a})}let c=s.filter(r=>o.has(r.id)),d=new Map(n.map((r,h)=>[r.id,h])),u=new Set(tt(c.map(r=>d.get(r.id))).map(r=>c[r].id)),f=et(s,u,r=>{let h=o.get(r);return h&&Number(h.position)||0});for(let r of s)o.has(r.id)?u.has(r.id)||l.push({op:"move",id:r.id,position:f.get(r.id)}):l.push({op:"add",tempId:r.id,text:r.text||"",completed:!!r.completed,position:f.get(r.id),...r.header?{header:!0}:{},...r.notes?{notes:r.notes}:{},...Array.isArray(r.subItems)&&r.subItems.length?{subItems:r.subItems}:{}});return l}function y(t){return!!(t&&t.header)}function C(t){let e=[],n=[],s=()=>{e.push(...n.filter(o=>!o.completed&&o.highlighted),...n.filter(o=>!o.completed&&!o.highlighted),...n.filter(o=>o.completed)),n=[]};for(let o of t||[])y(o)?(s(),e.push(o)):n.push(o);return s(),e}function st(t,e){return C((t||[]).map(n=>n.id===e&&!y(n)?{...n,completed:!n.completed}:n))}function ot(t,e,n){return C((t||[]).map(s=>s.id!==e||y(s)?s:{...s,highlighted:n===void 0?!s.highlighted:!!n}))}function R(t){return(t||[]).filter(e=>e&&!y(e))}function it(t){let e=new Map,n=null;for(let s of t||[])y(s)?(n={done:0,total:0},e.set(s.id,n)):n&&(n.total+=1,s.completed&&(n.done+=1));return e}function lt(t,e){let n=e instanceof Set?e:new Set(e||[]),s=[],o=!1;for(let i of t||[])y(i)?(o=n.has(i.id),s.push(i)):(!o||i.ghost)&&s.push(i);return s}function rt(t){let e=R(t);return e.length>0&&e.every(n=>n.completed)}function ct(t){let e=JSON.stringify(t),n=5381;for(let s=0;s<e.length;s++)n=(n<<5)+n+e.charCodeAt(s)|0;return String(n>>>0)}$.exports={normalizeSharedLists:Z,diffItems:nt,hashLists:ct,flipAndSink:st,starAndFloat:ot,isHeaderItem:y,countableItems:R,isListComplete:rt,sectionCounts:it,visibleItems:lt,tierSegments:C}});var L=S((Pt,F)=>{var{isHeaderItem:dt}=k(),B="__ghost__",T="__top__";function H(t){let e=t||[],n=-1;e.forEach((o,i)=>{dt(o)&&(n=i)});let s=n+1;for(let o=n+1;o<e.length;o++)e[o].completed||(s=o+1);return s}function _(t,e){if(e===T)return 0;if(e){let n=(t||[]).findIndex(s=>s.id===e);if(n>=0)return n+1}return H(t)}function ut(t,e){let n=(t||[]).slice();return n.splice(_(t,e),0,{id:B,ghost:!0}),n}function at(t){let e=t.findIndex(n=>n.id===B);return e<0?{items:t,afterId:void 0}:{items:t.filter(n=>n.id!==B),afterId:e===0?T:t[e-1].id}}function ft(t,e,n){let s=(t||[]).slice();return s.splice(_(t,e),0,n),s}F.exports={GHOST_ID:B,TOP:T,defaultSlot:H,ghostSlot:_,withGhost:ut,splitGhost:at,insertAtGhost:ft}});var U=S((Rt,z)=>{var j="      \u25E6  ",ht=/^•[ \t]+/,mt=/^[ \t]{2,}◦[ \t]+/,v=(t,e)=>t.lastIndexOf(`
-`,e-1)+1,p=(t,e)=>{let n=t.indexOf(`
-`,e);return n<0?t.length:n};function b(t){let e=mt.exec(t);if(e)return{level:2,len:e[0].length};let n=ht.exec(t);return n?{level:1,len:n[0].length}:{level:0,len:0}}var g=t=>t===2?j:t===1?"\u2022  ":"";function I(t,e){let n=(t||[]).map(([o,i])=>[Math.max(0,Math.min(o,e)),Math.max(0,Math.min(i,e))]).filter(([o,i])=>i>o).sort((o,i)=>o[0]-i[0]),s=[];for(let[o,i]of n){let l=s[s.length-1];l&&o<=l[1]?l[1]=Math.max(l[1],i):s.push([o,i])}return s}function D(t,e,n,s){return I([...t||[],[e,n]],s)}function G(t,e,n,s){let o=[];for(let[i,l]of t||[]){if(l<=e||i>=n){o.push([i,l]);continue}i<e&&o.push([i,e]),l>n&&o.push([n,l])}return I(o,s)}var N=(t,e)=>(t||[]).some(([n,s])=>e>=n&&e<s);function J(t,e,n){if(n<=e)return!1;for(let s=e;s<n;s++)if(!N(t,s))return!1;return!0}function gt(t,e){return t<=e.at?t:t>=e.at+e.del?t-e.del+e.ins.length:e.at+e.ins.length}function pt(t,e){return t<=e.at?t:t>=e.at+e.del?t-e.del+e.ins.length:e.at}function q(t,e){return t<e.at?t:t>=e.at+e.del?t-e.del+e.ins.length:e.at+e.ins.length}function x(t,e){let{text:n,sel:s,bold:o}=t;for(let i of[...e].sort((l,c)=>c.at-l.at))n=n.slice(0,i.at)+i.ins+n.slice(i.at+i.del),s={start:q(s.start,i),end:q(s.end,i)},o=(o||[]).map(([l,c])=>[gt(l,i),pt(c,i)]);return{text:n,sel:s,bold:I(o,n.length)}}function bt(t){let e=t.text,n=Math.min(t.sel.start,t.sel.end),s=Math.max(t.sel.start,t.sel.end),o=v(e,n),i=p(e,s),l=(b(e.slice(o,p(e,o))).level+1)%3,c=[];for(let d=o;d<=i;){let u=p(e,d),m=b(e.slice(d,u));if(c.push({at:d,del:m.len,ins:g(l)}),d=u+1,u>=e.length)break}return x(t,c)}function At(t,e,n){let s=t.text,o=String(e==null?"":e),i=0,l=Math.min(s.length,o.length);for(;i<l&&s[i]===o[i];)i++;let c=0;for(;c<l-i&&s[s.length-1-c]===o[o.length-1-c];)c++;let d={at:i,del:s.length-i-c,ins:o.slice(i,o.length-c)};if(d.del===1&&!d.ins){let f=v(s,d.at),r=b(s.slice(f,p(s,f)));if(r.level&&d.at<f+r.len){let h=x(t,[{at:f,del:r.len,ins:g(r.level-1)}]),a=f+g(r.level-1).length;return{...h,sel:{start:a,end:a}}}}let u=x(t,[d]),m=d.at+d.ins.length;if(u.sel={start:m,end:m},d.ins.length&&(u.bold=n?D(u.bold,d.at,m,u.text.length):G(u.bold,d.at,m,u.text.length)),d.ins===`
-`&&d.del===0){let f=u.text,r=v(f,d.at),h=f.slice(r,d.at),a=b(h);if(a.level)if(h.length===a.len&&!f.slice(d.at+1,p(f,d.at+1)).trim())u=x(u,[{at:d.at,del:1,ins:""},{at:r,del:a.len,ins:g(a.level-1)}]);else{u=x(u,[{at:d.at+1,del:0,ins:g(a.level)}]);let P=d.at+1+g(a.level).length;u.sel={start:P,end:P}}}return u}function yt(t){let e=t.text,n=Math.min(t.sel.start,t.sel.end),s=Math.max(t.sel.start,t.sel.end),o=v(e,n),i=e.slice(o,p(e,n)),l=b(i);if(l.level&&n===s&&i.length===l.len){let m=x(t,[{at:o,del:l.len,ins:g(l.level-1)}]),f=o+g(l.level-1).length;return{...m,sel:{start:f,end:f}}}let c=`
-`+g(l.level),d=x(t,[{at:n,del:s-n,ins:c}]),u=n+c.length;return{...d,sel:{start:u,end:u}}}function xt(t,e){let n=Math.min(t.sel.start,t.sel.end),s=Math.max(t.sel.start,t.sel.end);if(n===s)return{state:t,typingBold:!e};let i=J(t.bold,n,s)?G(t.bold,n,s,t.text.length):D(t.bold,n,s,t.text.length);return{state:{...t,bold:i},typingBold:!!e}}var St=(t,e)=>e>0&&N(t,e-1);function It(t,e){let n=Math.min(t.sel.start,t.sel.end),s=Math.max(t.sel.start,t.sel.end),o=t.text;return{bullet:b(o.slice(v(o,n),p(o,n))).level>0,bold:n===s?!!e:J(t.bold,n,s)}}function vt(t,e){let n=String(t||""),s=new Set;for(let i=0;i<=n.length;){let l=p(n,i),c=n.slice(i,l);if(b(c).level&&s.add(i+c.search(/[•◦]/)),i=l+1,l>=n.length)break}let o=[];for(let i=0;i<n.length;i++){let l=s.has(i)?"bullet":N(e,i)?"bold":"text",c=o[o.length-1];c&&c.kind===l&&l!=="bullet"?c.t+=n[i]:o.push({t:n[i],kind:l})}return o}function wt(t,e){let n=String(t||""),s=/\*\*([^\n*](?:[^\n]*?[^\n*])?)\*\*/g;if(!s.test(n))return{text:n,bold:I(e,n.length)};s.lastIndex=0;let o="",i=0,l=[],c;for(;c=s.exec(n);)o+=n.slice(i,c.index),l.push([o.length,o.length+c[1].length]),o+=c[1],i=c.index+c[0].length;return o+=n.slice(i),{text:o,bold:I(l,o.length)}}z.exports={P1:"\u2022  ",P2:j,bulletOf:b,cycleBullet:bt,typed:At,pressEnter:yt,toggleBold:xt,formatAt:It,boldBefore:St,spans:vt,fromMarks:wt,normalize:I,addRange:D,removeRange:G}});var Q=S(($t,K)=>{var M=["#3498DB","#27AE60","#E67E22","#8E44AD","#E91E63","#16A085","#C0392B","#5B6ABF"];function Bt(t){return t&&t.color?t.color:M[0]}function Mt(t){let e=String(t||""),n=0;for(let s=0;s<e.length;s++)n=n*31+e.charCodeAt(s)>>>0;return M[n%M.length]}K.exports={CARD_ACCENTS:M,cardAccent:Bt,nameAccent:Mt}});var X=S((Ht,W)=>{function Et(t){let n=String(t||"").trim().match(/^shared with\s+(.+)$/i);return n?n[1].split(/\s*,\s*/).map(s=>s.trim()).filter(Boolean):[]}var V=t=>String(t||"").trim().split(/\s+/)[0]||"";function Ot(t){let e=(t||[]).map(V).filter(Boolean);return e.length?e.length===1?e[0]:e.length===2?`${e[0]} & ${e[1]}`:e.length===3?`${e[0]}, ${e[1]} & ${e[2]}`:`${e[0]}, ${e[1]} & ${e.length-2} more`:""}function Ct(t){return(Array.from(String(t||"").trim())[0]||"?").toUpperCase()}W.exports={namesFromSharedInfo:Et,peopleLine:Ot,initialOf:Ct,firstName:V}});var Dt=S((Ft,Y)=>{var A=k(),w=L(),E=U(),{nameAccent:kt,CARD_ACCENTS:Tt}=Q(),{initialOf:_t}=X();Y.exports={diffItems:A.diffItems,flipAndSink:A.flipAndSink,starAndFloat:A.starAndFloat,tierSegments:A.tierSegments,isHeaderItem:A.isHeaderItem,countableItems:A.countableItems,isListComplete:A.isListComplete,sectionCounts:A.sectionCounts,GHOST_ID:w.GHOST_ID,TOP:w.TOP,withGhost:w.withGhost,splitGhost:w.splitGhost,insertAtGhost:w.insertAtGhost,cycleBullet:E.cycleBullet,typed:E.typed,pressEnter:E.pressEnter,bulletOf:E.bulletOf,nameAccent:kt,CARD_ACCENTS:Tt,initialOf:_t}});return Dt();})();
+var QC=(()=>{var S=(t,n)=>()=>{try{return n||t((n={exports:{}}).exports,n),n.exports}catch(e){throw n=0,e}};var C=S((Nt,$)=>{function Z(t){return(Array.isArray(t)?t:[]).map(e=>({id:String(e.id),spaceId:e.spaceId?String(e.spaceId):"",title:typeof e.title=="string"&&e.title?e.title:"Shared list",createdAt:e.createdAt||null,role:e.role==="owner"?"owner":"member",shared:!0,dueDate:e.dueDate||null,startTime:e.startTime||null,endTime:e.endTime||null,scheduleDoneDate:e.doneDate||null,eventId:e.eventId?String(e.eventId):null,linkOn:!!e.linkOn,members:(Array.isArray(e.members)?e.members:[]).map(s=>({id:String(s.id),name:s.name||"Member",role:s.role==="owner"?"owner":"member"})),...Array.isArray(e.parties)?{parties:e.parties.map(s=>({id:String(s.id),notify:s.notify!==!1,hidden:!!s.hidden,role:s.role==="watching"?"watching":"doing",pickedRole:s.pickedRole==="watching"?"watching":s.pickedRole==="doing"?"doing":s.role==="watching"?"watching":"doing",canEdit:s.canEdit!==!1,notifyTicks:s.notifyTicks!==!1}))}:{},items:(Array.isArray(e.items)?e.items.slice():[]).map(s=>({id:String(s.id),text:typeof s.text=="string"?s.text:"",completed:!!s.completed,completedBy:s.completed&&s.completedBy?String(s.completedBy):null,completedAt:s.completed&&s.completedAt?String(s.completedAt):null,...s.completed&&s.completedBy&&s.completedByName?{completedByName:String(s.completedByName)}:{},highlighted:!!s.highlighted,position:Number(s.position)||0,...s.header?{header:!0}:{},notes:typeof s.notes=="string"?s.notes:"",subItems:Array.isArray(s.subItems)?s.subItems:[]})).sort((s,i)=>s.position-i.position||(s.id<i.id?-1:1))}))}function tt(t){let n=t.length;if(n===0)return[];let e=new Array(n).fill(1),s=new Array(n).fill(-1),i=0;for(let l=1;l<n;l++){for(let c=0;c<l;c++)t[c]<t[l]&&e[c]+1>e[l]&&(e[l]=e[c]+1,s[l]=c);e[l]>e[i]&&(i=l)}let o=[];for(let l=i;l!==-1;l=s[l])o.unshift(l);return o}var E=1e3;function et(t,n,e){let s=new Map,i=0;for(;i<t.length;){if(n.has(t[i].id)){i++;continue}let o=i;for(;o<t.length&&!n.has(t[o].id);)o++;let l=i>0?e(t[i-1].id):null,c=o<t.length?e(t[o].id):null,d=o-i;for(let u=0;u<d;u++){let m;l!==null&&c!==null?m=l+(c-l)*(u+1)/(d+1):l!==null?m=l+E*(u+1):c!==null?m=c-E*(d-u):m=E*(u+1),s.set(t[i+u].id,m)}i=o}return s}function nt(t,n){let e=Array.isArray(t)?t:[],s=Array.isArray(n)?n:[],i=new Map(e.map(r=>[r.id,r])),o=new Set(s.map(r=>r.id)),l=[];for(let r of e)o.has(r.id)||l.push({op:"remove",id:r.id});for(let r of s){let h=i.get(r.id);if(!h)continue;let a={};(h.text||"")!==(r.text||"")&&(a.text=r.text||""),!!h.completed!=!!r.completed&&(a.completed=!!r.completed),!!h.highlighted!=!!r.highlighted&&(a.highlighted=!!r.highlighted),(h.notes||"")!==(r.notes||"")&&(a.notes=r.notes||""),JSON.stringify(h.subItems||[])!==JSON.stringify(r.subItems||[])&&(a.subItems=Array.isArray(r.subItems)?r.subItems:[]),Object.keys(a).length&&l.push({op:"update",id:r.id,fields:a})}let c=s.filter(r=>i.has(r.id)),d=new Map(e.map((r,h)=>[r.id,h])),u=new Set(tt(c.map(r=>d.get(r.id))).map(r=>c[r].id)),f=et(s,u,r=>{let h=i.get(r);return h&&Number(h.position)||0});for(let r of s)i.has(r.id)?u.has(r.id)||l.push({op:"move",id:r.id,position:f.get(r.id)}):l.push({op:"add",tempId:r.id,text:r.text||"",completed:!!r.completed,position:f.get(r.id),...r.header?{header:!0}:{},...r.notes?{notes:r.notes}:{},...Array.isArray(r.subItems)&&r.subItems.length?{subItems:r.subItems}:{}});return l}function y(t){return!!(t&&t.header)}function k(t){let n=[],e=[],s=()=>{n.push(...e.filter(i=>!i.completed&&i.highlighted),...e.filter(i=>!i.completed&&!i.highlighted),...e.filter(i=>i.completed)),e=[]};for(let i of t||[])y(i)?(s(),n.push(i)):e.push(i);return s(),n}function st(t,n){return k((t||[]).map(e=>e.id===n&&!y(e)?{...e,completed:!e.completed}:e))}function it(t,n,e){return k((t||[]).map(s=>s.id!==n||y(s)?s:{...s,highlighted:e===void 0?!s.highlighted:!!e}))}function R(t){return(t||[]).filter(n=>n&&!y(n))}function ot(t){let n=new Map,e=null;for(let s of t||[])y(s)?(e={done:0,total:0},n.set(s.id,e)):e&&(e.total+=1,s.completed&&(e.done+=1));return n}function lt(t,n){let e=n instanceof Set?n:new Set(n||[]),s=[],i=!1;for(let o of t||[])y(o)?(i=e.has(o.id),s.push(o)):(!i||o.ghost)&&s.push(o);return s}function rt(t){let n=R(t);return n.length>0&&n.every(e=>e.completed)}function ct(t){let n=JSON.stringify(t),e=5381;for(let s=0;s<n.length;s++)e=(e<<5)+e+n.charCodeAt(s)|0;return String(e>>>0)}$.exports={normalizeSharedLists:Z,diffItems:nt,hashLists:ct,flipAndSink:st,starAndFloat:it,isHeaderItem:y,countableItems:R,isListComplete:rt,sectionCounts:ot,visibleItems:lt,tierSegments:k}});var L=S((Pt,F)=>{var{isHeaderItem:dt}=C(),B="__ghost__",T="__top__";function H(t){let n=t||[],e=-1;n.forEach((i,o)=>{dt(i)&&(e=o)});let s=e+1;for(let i=e+1;i<n.length;i++)n[i].completed||(s=i+1);return s}function _(t,n){if(n===T)return 0;if(n){let e=(t||[]).findIndex(s=>s.id===n);if(e>=0)return e+1}return H(t)}function ut(t,n){let e=(t||[]).slice();return e.splice(_(t,n),0,{id:B,ghost:!0}),e}function at(t){let n=t.findIndex(e=>e.id===B);return n<0?{items:t,afterId:void 0}:{items:t.filter(e=>e.id!==B),afterId:n===0?T:t[n-1].id}}function ft(t,n,e){let s=(t||[]).slice();return s.splice(_(t,n),0,e),s}F.exports={GHOST_ID:B,TOP:T,defaultSlot:H,ghostSlot:_,withGhost:ut,splitGhost:at,insertAtGhost:ft}});var U=S((Rt,z)=>{var j="      \u25E6  ",ht=/^•[ \t]+/,mt=/^[ \t]{2,}◦[ \t]+/,v=(t,n)=>t.lastIndexOf(`
+`,n-1)+1,p=(t,n)=>{let e=t.indexOf(`
+`,n);return e<0?t.length:e};function b(t){let n=mt.exec(t);if(n)return{level:2,len:n[0].length};let e=ht.exec(t);return e?{level:1,len:e[0].length}:{level:0,len:0}}var g=t=>t===2?j:t===1?"\u2022  ":"";function I(t,n){let e=(t||[]).map(([i,o])=>[Math.max(0,Math.min(i,n)),Math.max(0,Math.min(o,n))]).filter(([i,o])=>o>i).sort((i,o)=>i[0]-o[0]),s=[];for(let[i,o]of e){let l=s[s.length-1];l&&i<=l[1]?l[1]=Math.max(l[1],o):s.push([i,o])}return s}function D(t,n,e,s){return I([...t||[],[n,e]],s)}function G(t,n,e,s){let i=[];for(let[o,l]of t||[]){if(l<=n||o>=e){i.push([o,l]);continue}o<n&&i.push([o,n]),l>e&&i.push([e,l])}return I(i,s)}var N=(t,n)=>(t||[]).some(([e,s])=>n>=e&&n<s);function J(t,n,e){if(e<=n)return!1;for(let s=n;s<e;s++)if(!N(t,s))return!1;return!0}function gt(t,n){return t<=n.at?t:t>=n.at+n.del?t-n.del+n.ins.length:n.at+n.ins.length}function pt(t,n){return t<=n.at?t:t>=n.at+n.del?t-n.del+n.ins.length:n.at}function q(t,n){return t<n.at?t:t>=n.at+n.del?t-n.del+n.ins.length:n.at+n.ins.length}function x(t,n){let{text:e,sel:s,bold:i}=t;for(let o of[...n].sort((l,c)=>c.at-l.at))e=e.slice(0,o.at)+o.ins+e.slice(o.at+o.del),s={start:q(s.start,o),end:q(s.end,o)},i=(i||[]).map(([l,c])=>[gt(l,o),pt(c,o)]);return{text:e,sel:s,bold:I(i,e.length)}}function bt(t){let n=t.text,e=Math.min(t.sel.start,t.sel.end),s=Math.max(t.sel.start,t.sel.end),i=v(n,e),o=p(n,s),l=(b(n.slice(i,p(n,i))).level+1)%3,c=[];for(let d=i;d<=o;){let u=p(n,d),m=b(n.slice(d,u));if(c.push({at:d,del:m.len,ins:g(l)}),d=u+1,u>=n.length)break}return x(t,c)}function At(t,n,e){let s=t.text,i=String(n==null?"":n),o=0,l=Math.min(s.length,i.length);for(;o<l&&s[o]===i[o];)o++;let c=0;for(;c<l-o&&s[s.length-1-c]===i[i.length-1-c];)c++;let d={at:o,del:s.length-o-c,ins:i.slice(o,i.length-c)};if(d.del===1&&!d.ins){let f=v(s,d.at),r=b(s.slice(f,p(s,f)));if(r.level&&d.at<f+r.len){let h=x(t,[{at:f,del:r.len,ins:g(r.level-1)}]),a=f+g(r.level-1).length;return{...h,sel:{start:a,end:a}}}}let u=x(t,[d]),m=d.at+d.ins.length;if(u.sel={start:m,end:m},d.ins.length&&(u.bold=e?D(u.bold,d.at,m,u.text.length):G(u.bold,d.at,m,u.text.length)),d.ins===`
+`&&d.del===0){let f=u.text,r=v(f,d.at),h=f.slice(r,d.at),a=b(h);if(a.level)if(h.length===a.len&&!f.slice(d.at+1,p(f,d.at+1)).trim())u=x(u,[{at:d.at,del:1,ins:""},{at:r,del:a.len,ins:g(a.level-1)}]);else{u=x(u,[{at:d.at+1,del:0,ins:g(a.level)}]);let P=d.at+1+g(a.level).length;u.sel={start:P,end:P}}}return u}function yt(t){let n=t.text,e=Math.min(t.sel.start,t.sel.end),s=Math.max(t.sel.start,t.sel.end),i=v(n,e),o=n.slice(i,p(n,e)),l=b(o);if(l.level&&e===s&&o.length===l.len){let m=x(t,[{at:i,del:l.len,ins:g(l.level-1)}]),f=i+g(l.level-1).length;return{...m,sel:{start:f,end:f}}}let c=`
+`+g(l.level),d=x(t,[{at:e,del:s-e,ins:c}]),u=e+c.length;return{...d,sel:{start:u,end:u}}}function xt(t,n){let e=Math.min(t.sel.start,t.sel.end),s=Math.max(t.sel.start,t.sel.end);if(e===s)return{state:t,typingBold:!n};let o=J(t.bold,e,s)?G(t.bold,e,s,t.text.length):D(t.bold,e,s,t.text.length);return{state:{...t,bold:o},typingBold:!!n}}var St=(t,n)=>n>0&&N(t,n-1);function It(t,n){let e=Math.min(t.sel.start,t.sel.end),s=Math.max(t.sel.start,t.sel.end),i=t.text;return{bullet:b(i.slice(v(i,e),p(i,e))).level>0,bold:e===s?!!n:J(t.bold,e,s)}}function vt(t,n){let e=String(t||""),s=new Set;for(let o=0;o<=e.length;){let l=p(e,o),c=e.slice(o,l);if(b(c).level&&s.add(o+c.search(/[•◦]/)),o=l+1,l>=e.length)break}let i=[];for(let o=0;o<e.length;o++){let l=s.has(o)?"bullet":N(n,o)?"bold":"text",c=i[i.length-1];c&&c.kind===l&&l!=="bullet"?c.t+=e[o]:i.push({t:e[o],kind:l})}return i}function wt(t,n){let e=String(t||""),s=/\*\*([^\n*](?:[^\n]*?[^\n*])?)\*\*/g;if(!s.test(e))return{text:e,bold:I(n,e.length)};s.lastIndex=0;let i="",o=0,l=[],c;for(;c=s.exec(e);)i+=e.slice(o,c.index),l.push([i.length,i.length+c[1].length]),i+=c[1],o=c.index+c[0].length;return i+=e.slice(o),{text:i,bold:I(l,i.length)}}z.exports={P1:"\u2022  ",P2:j,bulletOf:b,cycleBullet:bt,typed:At,pressEnter:yt,toggleBold:xt,formatAt:It,boldBefore:St,spans:vt,fromMarks:wt,normalize:I,addRange:D,removeRange:G}});var Q=S(($t,K)=>{var M=["#3498DB","#27AE60","#E67E22","#8E44AD","#E91E63","#16A085","#C0392B","#5B6ABF"];function Bt(t){return t&&t.color?t.color:M[0]}function Mt(t){let n=String(t||""),e=0;for(let s=0;s<n.length;s++)e=e*31+n.charCodeAt(s)>>>0;return M[e%M.length]}K.exports={CARD_ACCENTS:M,cardAccent:Bt,nameAccent:Mt}});var X=S((Ht,W)=>{function Ot(t){let e=String(t||"").trim().match(/^shared with\s+(.+)$/i);return e?e[1].split(/\s*,\s*/).map(s=>s.trim()).filter(Boolean):[]}var V=t=>String(t||"").trim().split(/\s+/)[0]||"";function Et(t){let n=(t||[]).map(V).filter(Boolean);return n.length?n.length===1?n[0]:n.length===2?`${n[0]} & ${n[1]}`:n.length===3?`${n[0]}, ${n[1]} & ${n[2]}`:`${n[0]}, ${n[1]} & ${n.length-2} more`:""}function kt(t){return(Array.from(String(t||"").trim())[0]||"?").toUpperCase()}W.exports={namesFromSharedInfo:Ot,peopleLine:Et,initialOf:kt,firstName:V}});var Dt=S((Ft,Y)=>{var A=C(),w=L(),O=U(),{nameAccent:Ct,CARD_ACCENTS:Tt}=Q(),{initialOf:_t}=X();Y.exports={diffItems:A.diffItems,flipAndSink:A.flipAndSink,starAndFloat:A.starAndFloat,tierSegments:A.tierSegments,isHeaderItem:A.isHeaderItem,countableItems:A.countableItems,isListComplete:A.isListComplete,sectionCounts:A.sectionCounts,GHOST_ID:w.GHOST_ID,TOP:w.TOP,withGhost:w.withGhost,splitGhost:w.splitGhost,insertAtGhost:w.insertAtGhost,cycleBullet:O.cycleBullet,typed:O.typed,pressEnter:O.pressEnter,bulletOf:O.bulletOf,nameAccent:Ct,CARD_ACCENTS:Tt,initialOf:_t}});return Dt();})();
 </script>
 <script>
 (function () {
@@ -277,7 +280,14 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
   // ── small things ──
   function $(id) { return document.getElementById(id); }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
-  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  // "Evan Kauffman" → "Evan" (the app's own way of naming people in a line).
+  function firstName(n) { return String(n || "").trim().split(/\s+/)[0] || "Someone"; }
+  // This phone's storage — and a copy in memory, for a browser that won't keep it.
+  var mem = {};
+  function store(k, v) {
+    if (v === undefined) { try { var got = localStorage.getItem(k); if (got != null) return got; } catch (e) { /* private mode */ } return mem[k] == null ? null : mem[k]; }
+    mem[k] = v; try { localStorage.setItem(k, v); } catch (e) { /* kept in memory */ }
+  }
   function hex(n) { var a = new Uint8Array(n); (window.crypto || {}).getRandomValues ? crypto.getRandomValues(a) : a.forEach(function (_, i) { a[i] = Math.random() * 256; }); return Array.prototype.map.call(a, function (b) { return ("0" + b.toString(16)).slice(-2); }).join(""); }
   function uuid() { var h = hex(16); return h.slice(0, 8) + "-" + h.slice(8, 12) + "-4" + h.slice(13, 16) + "-" + ((parseInt(h[16], 16) & 3) | 8).toString(16) + h.slice(17, 20) + "-" + h.slice(20, 32); }
   // A step's id, the app's own shape (`${Date.now()}-xxxxxx`).
@@ -286,10 +296,29 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
   if (!key || key.length < 16) { key = hex(16); store("quick-invite-key", key); }
   function myName() { return store("quick-invite-name") || (S && S.me && S.me.name) || ""; }
   var toastT = null;
-  function toast(m) { var t = $("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+  // A message at the bottom — with an Undo when there's something to undo.
+  function toast(m, undo) {
+    var t = $("toast");
+    t.innerHTML = esc(m) + (undo ? '<button type="button" class="undo">Undo</button>' : "");
+    t.classList.toggle("act", !!undo);
+    if (undo) t.querySelector(".undo").onclick = function () { t.classList.remove("show"); clearTimeout(toastT); undo(); };
+    t.classList.add("show"); clearTimeout(toastT);
+    toastT = setTimeout(function () { t.classList.remove("show"); }, undo ? 4000 : 2600);
+  }
+  // One call to the server: a real list (or "off") back, or it failed — a
+  // hiccup's error page never turns into an empty list. 15 s at most.
   function call(body) {
     body.l = token; body.k = key;
-    return fetch(API, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) }).then(function (r) { return r.json(); });
+    var ctl = window.AbortController ? new AbortController() : null;
+    var timer = ctl ? setTimeout(function () { ctl.abort(); }, 15000) : null;
+    return fetch(API, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body), keepalive: true, signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (x) {
+        clearTimeout(timer);
+        var j = x.j;
+        if (!x.ok || !j || typeof j !== "object" || (!j.off && !Array.isArray(j.items))) throw new Error("server");
+        return j;
+      }, function (e) { clearTimeout(timer); throw e; });
   }
   function replay(el, cls) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }
 
@@ -309,11 +338,20 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
   var lastJson = "";
   var pending = 0, queue = Promise.resolve();
   var busy = { sheet: false, edit: false, drag: false, ren: false };
-  function quiet() { return busy.sheet || busy.edit || busy.drag || busy.ren || pending > 0; }
+  // No refresh while something's being typed / dragged or a change is on its
+  // way (an open item sheet still refreshes — it skips what's being typed).
+  function quiet() { return busy.edit || busy.drag || busy.ren || pending > 0; }
+  // Every change gets a number; a refresh that left before the latest change
+  // is old news and never undoes it.
+  var changeNo = 0;
   // The server's list, held back while a row's being dragged or renamed (a
   // redraw would pull it out from under the finger) — taken when that ends.
   var deferred = null;
-  function takeDeferred() { if (deferred && !busy.drag && !busy.ren) { var s = deferred; deferred = null; adopt(s, true); } }
+  function takeDeferred() {
+    if (!deferred || busy.drag || busy.ren || pending > 0) return;
+    var d = deferred; deferred = null;
+    if (d.no === changeNo) adopt(d.s, true);
+  }
 
   // The server's rows → the app's (sharedDiff's shape: subItems, not steps).
   function fromServer(s) {
@@ -327,7 +365,8 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
   function adopt(s, force) {
     if (!s || typeof s !== "object") return;
     if (s.off) { S = s; lastJson = ""; render(); return; }
-    if (busy.drag || busy.ren) { deferred = s; return; }
+    if (!Array.isArray(s.items)) return;
+    if (busy.drag || busy.ren) { deferred = { s: s, no: changeNo }; return; }
     var clean = {}; for (var k in s) if (k !== "ok" && k !== "error") clean[k] = s[k];
     var j = JSON.stringify(clean);
     if (!force && j === lastJson && S) return;
@@ -337,32 +376,57 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
     render(before);
     if (sheet && sheet.refresh) sheet.refresh();
   }
-  function load() { return call({ action: "list_get" }).then(function (s) { adopt(s); }); }
+  // A refresh: taken only if nothing's changed here since it left.
+  function load() {
+    var no = changeNo;
+    return call({ action: "list_get" }).then(function (s) { if (no === changeNo && pending === 0) adopt(s); });
+  }
 
   // ── saving: the app's diff, the app's ops ──
-  var ERR = { view_only: "It's view only now — it can't be changed from here.", full: "That list is full.", bad: "That didn't save — try again.", gone: "Someone just took that off the list." };
+  var ERR = {
+    view_only: "It's view only now — it can't be changed from here.", full: "That list is full.",
+    bad: "That didn't save — try again.", gone: "Someone just took that off the list.",
+    removed: "You were taken off this list — you can still look.", busy: "That's a lot of changes at once — try again in a minute.",
+  };
+  // Saved in order; a dropped signal is tried again (twice) before it gives
+  // up — every change is safe to send twice (the server's ids are the page's).
   function send(op, args) {
     var name = myName();
+    changeNo++;
     pending++;
     queue = queue.then(function () {
-      return call({ action: "list_op", name: name, op: op, args: args }).then(function (res) {
-        pending--;
-        if (res && res.off) { adopt(res); return; }
-        if (res && res.error) { toast(ERR[res.error] || ERR.bad); if (!pending) adopt(res, true); return; }
-        if (!pending) adopt(res, true);
-      }, function () {
-        pending--;
-        toast("No connection — that didn't save.");
-        if (!pending) { lastJson = ""; load().catch(function () {}); }
-      });
+      var tries = 0;
+      function attempt() {
+        return call({ action: "list_op", name: name, op: op, args: args }).then(function (res) {
+          pending--;
+          if (res.off) { adopt(res); return; }
+          if (res.error) { toast(ERR[res.error] || ERR.bad); if (!pending) adopt(res, true); return; }
+          if (!pending) adopt(res, true);
+        }, function () {
+          if (++tries < 3) return new Promise(function (r) { setTimeout(r, tries * 1500); }).then(attempt);
+          pending--;
+          toast("No signal — that didn't save.");
+          if (!pending) { lastJson = ""; load().catch(function () {}); }
+        });
+      }
+      return attempt();
     });
   }
   // A change to the whole list: drawn now (moving rows glide — the app's
   // 220ms), saved as sharedDiff.diffItems' ops in one step.
   function commit(next) {
     var ops = QC.diffItems(items, next);
-    var pos = {};
-    ops.forEach(function (o) { if (o.position != null) pos[o.op === "add" ? o.tempId : o.id] = o.position; });
+    var pos = {}, was = {}, now = {};
+    items.forEach(function (i) { was[i.id] = i; });
+    next.forEach(function (i) { now[i.id] = i; });
+    ops.forEach(function (o) {
+      if (o.position != null) pos[o.op === "add" ? o.tempId : o.id] = o.position;
+      // Steps go with the ones they started from, so the server lays only
+      // THIS person's changes on what's there now (list_steps_merge).
+      if (o.op === "update" && o.fields && o.fields.subItems && was[o.id]) o.fields.subBase = was[o.id].subItems || [];
+      // A row put back (Undo) keeps its ★.
+      if (o.op === "add" && now[o.tempId] && now[o.tempId].highlighted) o.highlighted = true;
+    });
     next = next.map(function (i) { return pos[i.id] != null ? Object.assign({}, i, { position: pos[i.id] }) : i; });
     var before = measure(mainCtl);
     items = next;
@@ -450,7 +514,7 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
       '<button class="chk" data-a="chk" aria-label="' + (it.completed ? "Untick" : "Tick") + '"' + (view ? " disabled" : "") + '>✓</button>' +
       (view ? "" : '<button class="st" data-a="star" aria-label="Star">' + (it.highlighted ? "★" : "☆") + '</button>') +
       '<div class="t" data-a="open"><div class="tx">' + esc(it.text) + '</div>' + (ctl.steps ? "" : slimBar(stepsDone(it))) + '</div>' +
-      by + (detail && !view ? '<span class="dot"></span>' : "") +
+      by + (detail ? '<span class="dot"></span>' : "") /* 🔒 too: there's something to read */ +
       (view ? "" : '<button class="x" data-a="del" aria-label="Delete">✕</button><span class="hdl" aria-label="Hold to move">☰</span>') +
       '</div>';
   }
@@ -472,27 +536,49 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
   // Taps on a row: tick, ★, ✕, fold — and the text: tap = open, hold = rename.
   function wireCard(ctl) {
     ctl.card.addEventListener("click", function (e) {
-      var b = e.target.closest("[data-a]"); if (!b || !S.canEdit) return;
+      var b = e.target.closest("[data-a]"); if (!b || !S.canEdit || b.dataset.a === "open" || b.dataset.a === "hren") return;
       var row = b.closest(".r"); if (!row) return;
       var id = row.dataset.id, a = b.dataset.a;
       if (a === "chk") act(function () { tick(ctl, id); });
       else if (a === "star") act(function () { ctl.set(QC.starAndFloat(ctl.get(), id)); replay(b, "pop"); });
-      else if (a === "del") act(function () { ctl.set(ctl.get().filter(function (x) { return x.id !== id; })); });
+      else if (a === "del") act(function () {
+        // Gone at once, like the app's ✕ — with 4 seconds to take it back.
+        var list = ctl.get(), at = -1;
+        for (var i = 0; i < list.length; i++) if (list[i].id === id) at = i;
+        if (at < 0) return;
+        var gone = list[at];
+        ctl.set(list.filter(function (x) { return x.id !== id; }));
+        var name = String(gone.text || "");
+        toast("“" + (name.length > 24 ? name.slice(0, 23) + "…" : name) + "” deleted", function () {
+          var now = ctl.get();
+          if (now.some(function (x) { return x.id === gone.id; })) return;
+          var back = now.slice(); back.splice(Math.min(at, back.length), 0, gone);
+          ctl.set(back);
+        });
+      });
       else if (a === "chev") { ctl.collapsed[id] = !ctl.collapsed[id]; drawRows(ctl); }
     });
     ctl.card.addEventListener("pointerdown", function (e) {
-      if (!S.canEdit) return;
-      var t = e.target.closest('[data-a="open"], [data-a="hren"]'); if (!t) return;
+      // 🔒 view only: a tap still opens an item, to read it (no hold, no rename).
+      var view = !S.canEdit;
+      var t = e.target.closest(view ? '[data-a="open"]' : '[data-a="open"], [data-a="hren"]'); if (!t) return;
       var row = t.closest(".r"); var id = row.dataset.id;
       var x0 = e.clientX, y0 = e.clientY, fired = false;
-      var timer = setTimeout(function () { fired = true; if (navigator.vibrate) navigator.vibrate(8); act(function () { renameInline(ctl, id); }); }, HOLD_RENAME);
+      var timer = view ? null : setTimeout(function () { fired = true; if (navigator.vibrate) navigator.vibrate(8); act(function () { renameInline(ctl, id); }); }, HOLD_RENAME);
       function move(ev) { if (Math.abs(ev.clientX - x0) > SLOP || Math.abs(ev.clientY - y0) > SLOP) end(true); }
       function end(cancel) {
         clearTimeout(timer);
         document.removeEventListener("pointermove", move); document.removeEventListener("pointerup", up); document.removeEventListener("pointercancel", cancelIt);
         return cancel;
       }
-      function up() { end(); if (fired) return; var it = find(ctl, id); if (!it) return; if (it.header) act(function () { renameInline(ctl, id); }); else ctl.onOpen(it); }
+      function up() {
+        end();
+        // The finger lifting is what lets iOS bring the keyboard up.
+        if (fired) { var ren = ctl.card.querySelector(".ren"); if (ren) ren.focus(); return; }
+        var it = find(ctl, id); if (!it) return;
+        if (it.header) { if (!view) act(function () { renameInline(ctl, id); }); }
+        else ctl.onOpen(it);
+      }
       function cancelIt() { end(true); }
       document.addEventListener("pointermove", move); document.addEventListener("pointerup", up); document.addEventListener("pointercancel", cancelIt);
     });
@@ -620,11 +706,13 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
           else { drawRows(ctl); takeDeferred(); }
         }, 230);
       }
+      // Cut off (an iOS swipe, the window losing focus): back where it was, nothing saved.
+      function dropped() { var was = fired; cleanup(); if (was) { drawRows(ctl); takeDeferred(); } }
       function unlisten() {
         clearTimeout(timer);
         if (handle) handle.classList.remove("held");
         document.removeEventListener("touchmove", moved, { passive: false });
-        document.removeEventListener("touchend", ended); document.removeEventListener("touchcancel", ended);
+        document.removeEventListener("touchend", ended); document.removeEventListener("touchcancel", dropped); window.removeEventListener("blur", dropped);
         document.removeEventListener("mousemove", moved); document.removeEventListener("mouseup", ended);
       }
       function cleanup() {
@@ -637,7 +725,7 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
         busy.drag = false;
       }
       document.addEventListener("touchmove", moved, { passive: false });
-      document.addEventListener("touchend", ended); document.addEventListener("touchcancel", ended);
+      document.addEventListener("touchend", ended); document.addEventListener("touchcancel", dropped); window.addEventListener("blur", dropped);
       document.addEventListener("mousemove", moved); document.addEventListener("mouseup", ended);
     }
     var touchPt = function (e) { var t = e.touches && e.touches[0] || e.changedTouches && e.changedTouches[0]; return { x: t.clientX, y: t.clientY }; };
@@ -721,14 +809,26 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
     if (view) tr.innerHTML = '<div class="titleTxt" id="ttext"></div>';
     else {
       tr.innerHTML = '<div class="icon"><i id="letter"></i></div><input class="titleIn" id="tin" maxlength="200" placeholder="Checklist title" enterkeyhint="done">';
-      var tin = $("tin");
-      tin.addEventListener("focus", function () { busy.edit = true; });
+      var tin = $("tin"), titleT = null;
+      // The name, like the app's TITLE: saved on Enter, on leaving it, and a
+      // moment after typing stops. Their name is asked first, not after.
+      function saveTitle() {
+        clearTimeout(titleT);
+        var v = tin.value.replace(/\s+/g, " ").trim();
+        if (!v || v === S.title) return;
+        S.title = v; $("letter").textContent = QC.initialOf(v); document.title = v + " · Quick";
+        send("rename", { title: v });
+      }
+      tin.addEventListener("focus", function () {
+        if (!myName()) { tin.blur(); askName(function () { tin.focus(); }); return; }
+        busy.edit = true;
+      });
+      tin.addEventListener("input", function () { clearTimeout(titleT); titleT = setTimeout(saveTitle, 1500); });
       tin.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); tin.blur(); } });
       tin.addEventListener("blur", function () {
         busy.edit = false;
-        var v = tin.value.replace(/\s+/g, " ").trim();
-        if (!v || v === S.title) { tin.value = S.title; return; }
-        act(function () { S.title = v; $("letter").textContent = QC.initialOf(v); send("rename", { title: v }); });
+        if (!tin.value.trim()) { clearTimeout(titleT); tin.value = S.title; return; }
+        saveTitle();
       });
       mainComposer = composer(mainCtl, "Add an item…");
       $("composer").firstChild.innerHTML = ""; $("composer").firstChild.appendChild(mainComposer.el);
@@ -747,7 +847,7 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
     var view = !S.canEdit;
     document.title = S.title + " · Quick";
     $("htitle").textContent = view ? "Checklist" : "Edit Checklist";
-    $("who").textContent = S.host ? "Shared by " + S.host : "";
+    $("who").textContent = S.host ? "Shared by " + firstName(S.host) : "";
     if (view) $("ttext").textContent = S.title;
     else {
       if (document.activeElement !== $("tin")) $("tin").value = S.title;
@@ -758,6 +858,8 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
     var full = QC.isListComplete(items);
     $("ilabel").textContent = "Items  (" + done + "/" + real.length + ")";
     $("vhint").classList.toggle("hidden", !view);
+    // Taken off the link by the sharer (settings 34): they can still look.
+    $("vhint").textContent = S.removed ? firstName(S.host) + " took you off this list — you can still look." : "You can’t change this list — you can only look.";
     // The bar: shown with at least one real item (never in the locked view).
     var prog = $("prog");
     prog.classList.toggle("hidden", view || !real.length);
@@ -802,7 +904,8 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
       render();
     };
     me.cancel = function () { if (onCancel && onCancel() === false) return; me.close(); };
-    scrim.addEventListener("click", me.cancel);
+    // A tap outside does nothing — only ✕ and Done close it, like the app (and
+    // an iPhone's second "click" after the tap that opened it lands here).
     el.querySelector(".coin").addEventListener("click", me.cancel);
     sheet = me;
     build(me);
@@ -816,9 +919,12 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
     var prev = sheet;
     var s = openSheet("short name", function (s) {
       s.body.innerHTML = '<div class="ihead"><h2>' + (force ? "Your name" : "What's your name?") + '</h2><button class="dpill" id="nmok"><i>✓</i><span>Done</span></button></div>' +
-        '<p class="sub">So ' + esc((S && S.host) || "they") + ' sees who changed it.</p><input id="nm" maxlength="40" autocomplete="given-name" placeholder="Your name" enterkeyhint="done">';
+        '<p class="sub">So ' + esc(S && S.host ? firstName(S.host) : "they") + ' sees who changed it.</p><input id="nm" maxlength="40" autocomplete="given-name" placeholder="Your name" enterkeyhint="done">';
       var input = s.el.querySelector("#nm"); input.value = have;
-      setTimeout(function () { try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); } }, 300);
+      // Focused now, while the tap that asked is still going (iOS raises the
+      // keyboard only then) — and once more after the slide, to be sure.
+      try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); }
+      setTimeout(function () { if (document.activeElement !== input) { try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); } } }, 300);
       function go() {
         var v = input.value.replace(/\s+/g, " ").trim().slice(0, 40);
         if (!v) { input.classList.remove("shake"); void input.offsetWidth; input.classList.add("shake"); input.focus(); return; }
@@ -840,15 +946,19 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
   function setItem(id, patch) { commit(items.map(function (x) { return x.id === id ? Object.assign({}, x, patch) : x; })); }
   function openItem(id) {
     var it0 = itemOf(id); if (!it0) return;
-    var snap = { notes: it0.notes || "", subItems: JSON.parse(JSON.stringify(it0.subItems || [])), highlighted: !!it0.highlighted };
+    var snap = { notes: it0.notes || "", highlighted: !!it0.highlighted };
+    // What THIS person changed here — ✕ takes back only that (anyone else's
+    // changes since stay): their step changes, and whether they touched the
+    // notes or the ★.
+    var mySteps = [], touched = { notes: false, star: false };
     var stepCtl = new Ctl({
       steps: true, newId: stepId,
       get: function () { var it = itemOf(id); return it ? (it.subItems || []) : []; },
-      set: function (next) { setItem(id, { subItems: next }); },
+      set: function (next) { mySteps.push({ prev: stepCtl.get(), next: next }); setItem(id, { subItems: next }); },
       onOpen: function (st) { openStepPage(st.id); },
     });
     var page = null; // a step's notes page (its id), or null
-    var stepSnap = null;
+    var pageMark = 0; // how many step changes there were when it opened
     var writing = false, pad = null, stepComposer = null;
     var s = openSheet("tall", function (me) {
       s = me; // draw() below reads it — openSheet hasn't returned yet
@@ -856,46 +966,63 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
       s.refresh = function () { if (!itemOf(id)) { s.close(); toast(ERR.gone); return; } if (!writing) draw(); };
       draw();
     }, function cancel() {
-      // ✕ on a step's page: back to the item, its steps as they were.
+      // ✕ on a step's page: back to the item, the step as it was.
       if (page) { closeStepPage(true); return false; }
-      // ✕ keeps nothing: the item as it was when it opened (cancelItem).
+      // ✕ keeps nothing of mine: the item as it was when it opened (cancelItem).
       if (pad) pad.drop();
       var it = itemOf(id); if (!it) return;
-      // Only what changed goes back (the app's cancelItem → applyItemDetailPatch).
       var patch = {};
-      if ((it.notes || "") !== snap.notes) patch.notes = snap.notes;
-      if (JSON.stringify(it.subItems || []) !== JSON.stringify(snap.subItems)) patch.subItems = snap.subItems;
-      if (!!it.highlighted !== snap.highlighted) patch.highlighted = snap.highlighted;
+      if (touched.notes && (it.notes || "") !== snap.notes) patch.notes = snap.notes;
+      if (touched.star && !!it.highlighted !== snap.highlighted) patch.highlighted = snap.highlighted;
       if (Object.keys(patch).length) setItem(id, patch);
+      takeBackSteps(0);
     });
+    // My step changes since `from`, taken back newest first — each one laid on
+    // what's there now by the server (list_steps_merge), so nobody else's go.
+    function takeBackSteps(from) {
+      var mine = mySteps.slice(from); mySteps.length = from;
+      if (!mine.length) return;
+      var ops = mine.slice().reverse().map(function (c) { return { op: "update", id: id, fields: { subItems: c.prev, subBase: c.next } }; });
+      var before = measure(mainCtl);
+      items = items.map(function (x) { return x.id === id ? Object.assign({}, x, { subItems: mine[0].prev }) : x; });
+      render(before);
+      if (sheet && sheet.refresh) sheet.refresh();
+      send("apply", { ops: ops });
+    }
 
     function draw() {
       var it = itemOf(id); if (!it) return;
-      var b = s.body;
+      var b = s.body, view = !S.canEdit;
       if (page) return drawStepPage(it);
       var d = stepsDone(it);
+      var steps = (it.subItems || []).length;
       b.innerHTML =
-        '<div class="ihead"><h2 id="iname"></h2><button class="stog' + (it.highlighted ? " on" : "") + '" id="istar" aria-label="Star">' + (it.highlighted ? "★" : "☆") + '</button>' +
+        '<div class="ihead"><h2 id="iname"></h2>' +
+        (view ? (it.highlighted ? '<span class="stog on">★</span>' : "") : '<button class="stog' + (it.highlighted ? " on" : "") + '" id="istar" aria-label="Star">' + (it.highlighted ? "★" : "☆") + '</button>') +
         '<button class="dpill" id="idone"><i>✓</i><span>Done</span></button></div>' +
         '<div id="padslot"></div>' +
-        '<div id="subs"><div class="flabel">Sub-items  (' + d.done + "/" + d.total + ')</div>' +
-        (d.total ? '<div class="prog' + (d.done === d.total ? " full" : "") + '"><div class="track"><div class="fill" style="width:' + Math.round(d.done * 100 / d.total) + '%"></div></div><div class="pill">' + (d.done === d.total ? "🎉 Done" : d.done + "/" + d.total) + '</div></div>' : "") +
-        ((it.subItems || []).length ? '<div class="chips"><span>📝 Tap for notes</span><span>✏️ Hold to rename</span></div>' : '<div class="dashed" id="breakup">🪜  Break this item into smaller steps</div>') +
-        '<div class="card steps" id="scard"></div></div>';
+        (view && !steps ? "" :
+          '<div id="subs"><div class="flabel">Sub-items  (' + d.done + "/" + d.total + ')</div>' +
+          (d.total && !view ? '<div class="prog' + (d.done === d.total ? " full" : "") + '"><div class="track"><div class="fill" style="width:' + Math.round(d.done * 100 / d.total) + '%"></div></div><div class="pill">' + (d.done === d.total ? "🎉 Done" : d.done + "/" + d.total) + '</div></div>' : "") +
+          (view ? "" : steps ? '<div class="chips"><span>📝 Tap for notes</span><span>✏️ Hold to rename</span></div>' : '<div class="dashed" id="breakup">🪜  Break this item into smaller steps</div>') +
+          '<div class="card steps" id="scard"></div></div>') +
+        (view && !steps && !it.notes ? '<p class="emptyMsg">Nothing more on this one.</p>' : "");
       b.querySelector("#iname").textContent = it.text;
       // ★ here just stars it (the app's StarToggle → onUpdate({ highlighted })).
-      b.querySelector("#istar").addEventListener("click", function () { var me = this; act(function () { setItem(id, { highlighted: !itemOf(id).highlighted }); replay(me, "pop"); }); });
+      var star = b.querySelector("#istar");
+      if (star) star.addEventListener("click", function () { var me = this; act(function () { touched.star = true; setItem(id, { highlighted: !itemOf(id).highlighted }); replay(me, "pop"); }); });
       b.querySelector("#idone").addEventListener("click", function () { if (pad) pad.save(); s.close(); });
-      pad = notesPad(b.querySelector("#padslot"), function () { return itemOf(id).notes || ""; }, function (v) { setItem(id, { notes: v }); }, setWriting);
+      pad = notesPad(b.querySelector("#padslot"), function () { return itemOf(id).notes || ""; }, function (v) { touched.notes = true; setItem(id, { notes: v }); }, setWriting);
       stepCtl.card = b.querySelector("#scard");
-      if (!stepCtl.wired) { stepCtl.wired = true; }
-      wireCardOnce(stepCtl);
-      drawRows(stepCtl);
+      if (stepCtl.card) { wireCardOnce(stepCtl); drawRows(stepCtl); }
       var bu = b.querySelector("#breakup"); if (bu) bu.addEventListener("click", function () { stepComposer && stepComposer.input.focus(); });
       drawFoot();
     }
+    // The add bar — the item's page only (not a step's page), and only for
+    // someone who can change it.
     function drawFoot() {
       if (writing) return;
+      if (page || !S.canEdit) { s.foot.innerHTML = ""; return; }
       if (!stepComposer) stepComposer = composer(stepCtl, "Add a sub-item…");
       // Left in place if it's there (moving it would drop the keyboard).
       if (stepComposer.el.parentNode !== s.foot) { s.foot.innerHTML = ""; s.foot.appendChild(stepComposer.el); }
@@ -914,25 +1041,30 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
     }
     // A step's own page: its name, its ★, Done — and its notes.
     function openStepPage(stepIdv) {
-      page = stepIdv; stepSnap = JSON.parse(JSON.stringify(itemOf(id).subItems || []));
+      // 🔒 view only: a step's page opens only when there's a note to read.
+      if (!S.canEdit) { var st0 = stepCtl.get().filter(function (x) { return x.id === stepIdv; })[0]; if (!st0 || !st0.notes) return; }
+      page = stepIdv; pageMark = mySteps.length;
       draw();
       s.body.firstChild && s.body.classList.add("pagein");
       setTimeout(function () { s.body.classList.remove("pagein"); }, 300);
     }
     function closeStepPage(cancel) {
       if (pad) { if (cancel) pad.drop(); else pad.save(); }
-      if (cancel && JSON.stringify(itemOf(id).subItems || []) !== JSON.stringify(stepSnap)) setItem(id, { subItems: stepSnap });
-      page = null; stepSnap = null; writing = false;
+      // ✕: the step's changes made on its page go back (only mine).
+      if (cancel) takeBackSteps(pageMark);
+      page = null; writing = false;
       draw();
     }
     function drawStepPage(it) {
       var st = (it.subItems || []).filter(function (x) { return x.id === page; })[0];
       if (!st) { page = null; return draw(); }
-      var b = s.body;
-      b.innerHTML = '<div class="ihead"><h2 id="sname"></h2><button class="stog' + (st.highlighted ? " on" : "") + '" id="sstar" aria-label="Star">' + (st.highlighted ? "★" : "☆") + '</button>' +
+      var b = s.body, view = !S.canEdit;
+      b.innerHTML = '<div class="ihead"><h2 id="sname"></h2>' +
+        (view ? (st.highlighted ? '<span class="stog on">★</span>' : "") : '<button class="stog' + (st.highlighted ? " on" : "") + '" id="sstar" aria-label="Star">' + (st.highlighted ? "★" : "☆") + '</button>') +
         '<button class="dpill" id="sdone"><i>✓</i><span>Done</span></button></div><div id="padslot"></div>';
       b.querySelector("#sname").textContent = st.text;
-      b.querySelector("#sstar").addEventListener("click", function () {
+      var sstar = b.querySelector("#sstar");
+      if (sstar) sstar.addEventListener("click", function () {
         var me = this;
         act(function () { stepCtl.set(QC.starAndFloat(stepCtl.get(), page)); replay(me, "pop"); });
       });
@@ -985,11 +1117,18 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
     }
     ta.addEventListener("focus", function () {
       if (!S.canEdit) { ta.blur(); return; }
+      // Their name FIRST — asked when they finished, a cancel lost the notes.
+      if (!myName()) { ta.blur(); askName(function () { ta.focus(); }); return; }
       writing = true; paper.classList.add("writing"); hint.classList.remove("hidden"); busy.edit = true;
       onWriting && onWriting(true); paint();
     });
+    // Saved a moment after typing stops too — not only on leaving the paper
+    // (switching apps or closing the tab mid-note lost it).
+    var autoT = null;
+    function autosave() { clearTimeout(autoT); autoT = setTimeout(function () { if (!dropped && S.canEdit && state.text !== getText()) save(state.text); }, 1200); }
     ta.addEventListener("input", function () {
       apply(QC.typed(state, ta.value, false));
+      autosave();
     });
     ta.addEventListener("keydown", function (e) {
       if (e.key === "Enter" && !e.shiftKey && !e.isComposing) {
@@ -1003,10 +1142,12 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
     ta.addEventListener("click", function () { state.sel = { start: ta.selectionStart, end: ta.selectionEnd }; });
     var dropped = false;
     ta.addEventListener("blur", function () {
-      writing = false; paper.classList.remove("writing"); hint.classList.add("hidden"); busy.edit = false;
+      clearTimeout(autoT);
+      var was = writing;
+      writing = false; paper.classList.remove("writing"); hint.classList.add("hidden"); if (was) busy.edit = false;
       paint();
       if (!dropped && state.text !== getText()) act(function () { save(state.text); });
-      onWriting && onWriting(false);
+      if (was) onWriting && onWriting(false);
     });
     paint();
     return {
@@ -1023,7 +1164,17 @@ var QC=(()=>{var S=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exp
   });
   // Live: what others change shows up here (not mid-change).
   setInterval(function () { if (!document.hidden && S && !S.off && !quiet()) load().catch(function () {}); }, POLL_MS);
-  document.addEventListener("visibilitychange", function () { if (!document.hidden && S && !S.off && !quiet()) load().catch(function () {}); });
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) { flush(); return; }
+    if (S && !S.off && !quiet()) load().catch(function () {});
+  });
+  // Leaving the page (another app, the tab closing): whatever's being typed —
+  // notes, a rename, the title — is saved now (leaving the box saves it).
+  function flush() {
+    var a = document.activeElement;
+    if (a && (a.tagName === "TEXTAREA" || (a.tagName === "INPUT" && !a.closest(".bar")))) a.blur();
+  }
+  window.addEventListener("pagehide", flush);
 })();
 </script>
 </body>
